@@ -84,7 +84,17 @@ body {
    position: relative;
    background-color: rgba(0, 0, 0, 0.5);
    background-blend-mode: multiply;
-
-
 }
+
+
+.b {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 
