@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@heroicons/react": "^2.1.5",
+    "@mui/icons-material": "^6.1.2",
+    "@mui/material": "^6.1.2",
     "@notion-render/bookmark-plugin": "^0.0.2",
     "@notion-render/client": "^0.0.2",
     "@notion-render/hljs-plugin": "^0.0.2",
@@ -25,7 +29,8 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "useref": "^1.4.4"
   },
   "devDependencies": {
     "@types/node": "^20",

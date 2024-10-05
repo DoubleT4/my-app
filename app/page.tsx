@@ -1,8 +1,7 @@
 import Card from "@/components/card/Card";
 import Navigation from "@/components/nav/navigation";
 import { fetchPages } from "@/lib/notion";
-import Image from "next/image";
-import Button from "@/components/Button/Button";
+
 
 export default async function Home() {
   const post = await fetchPages();
