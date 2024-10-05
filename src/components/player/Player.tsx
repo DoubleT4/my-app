@@ -1,38 +1,28 @@
 "use client"
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
 
 
-export function Player({src}) {
+export function Player({ src }) {
   const audioPlayer = useRef()
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(30);
-  const [duration, setDuration] = useState(0);
-  const [elapsed, setElapsed] = useState(0);
   const [currentSong] = useState(src);
 
-    useEffect(() => {
-    if(audioPlayer){
-        audioPlayer.current.volume = volume / 100;
+
+  useEffect(() => {
+    if (audioPlayer.current) 
+      {const handleEnded = () => {
+        setIsPlaying(false);
+      };
+      audioPlayer.current.addEventListener('ended', handleEnded);
+      return () => {
+        audioPlayer.current.removeEventListener('ended', handleEnded);
+      };
     }
-
-    
-    if(isPlaying){
-        setInterval(() => {
-            const _duration = Math.floor(audioPlayer?.current?.duration);
-            const _elapsed = Math.floor(audioPlayer?.current?.currentTime);
-
-            setDuration(_duration);
-            setElapsed(_elapsed);
-        }, 100);
-    }
-
-}, [
-    volume, isPlaying
-]);
+  }, [currentSong]);
 
 
   const togglePlay = () => {
@@ -45,15 +35,15 @@ export function Player({src}) {
   };
 
   return (
-    
-      <>
-        <audio src={currentSong} ref={audioPlayer} type="audio/mp3"/> 
-          {!isPlaying
-            ?   <PlayArrowIcon fontSize={'large'} sx={{color: 'blue', '&:hover': {color: 'white'}}} onClick={togglePlay}/>
-            :   <PauseIcon fontSize={'large'} sx={{color: 'blue', '&:hover': {color: 'white'}}} onClick={togglePlay}/>
-          }
-      </>  
-    
+
+    <>
+      <audio src={currentSong} ref={audioPlayer} type="audio/mp3" />
+      {!isPlaying
+        ? <PlayArrowIcon fontSize={'large'} sx={{ height: '50px', width: '50px', color: 'blue', '&:hover': { color: 'white' } }} onClick={togglePlay} />
+        : <PauseIcon fontSize={'large'} sx={{ height: '50px', width: '50px', color: 'blue', '&:hover': { color: 'white' } }} onClick={togglePlay} />
+      }
+    </>
+
   )
 }
 
