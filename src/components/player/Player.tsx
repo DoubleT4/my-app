@@ -1,29 +1,28 @@
-"use client"
-import React, { useState, useEffect, useRef } from 'react'
+"use client";
+import React, { useState, useEffect, useRef } from 'react';
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-
-
-
 export function Player({ src }) {
-  const audioPlayer = useRef()
+  const audioPlayer = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong] = useState(src);
 
+  // Déplacement de handleEnded à l'extérieur de useEffect
+  const handleEnded = () => {
+    setIsPlaying(false);
+  };
 
   useEffect(() => {
-    if (audioPlayer.current) 
-      {const handleEnded = () => {
-        setIsPlaying(false);
-      };
+    if (audioPlayer.current) {
       audioPlayer.current.addEventListener('ended', handleEnded);
-      return () => {
-        audioPlayer.current.removeEventListener('ended', handleEnded);
-      };
     }
-  }, [currentSong]);
-
+    return () => {
+      if (audioPlayer.current) {
+        audioPlayer.current.removeEventListener('ended', handleEnded);
+      }
+    };
+  }, [currentSong]); // L'effet se déclenche quand currentSong change
 
   const togglePlay = () => {
     if (!isPlaying) {
@@ -35,7 +34,6 @@ export function Player({ src }) {
   };
 
   return (
-
     <>
       <audio src={currentSong} ref={audioPlayer} type="audio/mp3" />
       {!isPlaying
@@ -43,9 +41,9 @@ export function Player({ src }) {
         : <PauseIcon fontSize={'large'} sx={{ height: '50px', width: '50px', color: 'blue', '&:hover': { color: 'white' } }} onClick={togglePlay} />
       }
     </>
-
-  )
+  );
 }
 
-export default Player
+export default Player;
+
 
