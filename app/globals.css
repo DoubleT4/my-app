@@ -87,14 +87,66 @@ body {
 }
 
 
-.b {
-  background-color: #0070f3;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+
+
+.a{
+  height: 100%;
+  width: 100px;
+}
+
+.b{
+  height: 100%;
+  width: 100px;
+}
+
+.c{
+  height: 100%;
+  width: 100px;
+}
+
+.d{
+  height: 100%;
+  width: 50px;
+}
+
+.e{
+  background-image: url(image/oui.png);
+  height: 64px;
+  width: 500px;
+}
+
+.f{
+  height: 64px;
+  width: 190px;
+}
+
+.g{
+  
+  background-image: url(image/logo.png);
+  height: 64px;
+  width: 500px;
+}
+
+
+.a:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+
+  color: red;
+  font-weight: bold;
+}
+
+.b:hover{
+  background-image: url(image/Luffy1.jpg);
+  background-size: cover;
+  color: red;
+  font-weight: bold;
+}
+
+.c:hover{
+  background-image: url(image/bassem692.jpg);
+  background-size: cover;
+  color: red;
+  font-weight: bold;
 }
 
 
