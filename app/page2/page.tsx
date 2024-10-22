@@ -1,6 +1,7 @@
 import Card from "@/components/card/Card";
 import Navigation from "@/components/nav/navigation";
 import { fetchPages } from "@/lib/notion";
+import { ClassNames } from "@emotion/react";
 
 
 export default async function Home() {
@@ -14,7 +15,7 @@ export default async function Home() {
         <h2>seulement pour les mecs COOL</h2>
       </header>
       <div className="px-24">
-        <ul className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+        <ul className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 lg:gap-8">
 
           {post.results.map((i) => (
             <Card

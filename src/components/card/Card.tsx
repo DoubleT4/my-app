@@ -4,12 +4,13 @@ import Image from 'next/image'
 import React from 'react'
 import Player from '../player/Player';
 
-const Card = ({ name, image, sound}) => {
+
+const Card = ({ name, image, sound }) => {
   return (
-    <li className="flex flex-col items-center justify-center gap-5 rounded-2xl bg-gray-800 px-8 py-10">
-      <Image className="mx-auto h-48 w-48 rounded-full md:h-56 md:w-56" src={image} alt=""height={100} width={100} />
-      <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-white">{name}</h3>
-      <Player src={sound}/>
+    <li className="w-[330px] h-[500px] flex flex-col items-center justify-center gap-[38px] rounded-[50px] bg-gradient-to-tl from-[#6acafa] to-[#8971f3] px-8 py-10">
+      <Image className="mx-auto h-[224px] w-[224px] rounded-full" src={image} alt="" height={100} width={100} />
+      <h3 className="font-[Julee] text-[#fff3f3] text-[40px]">{name}</h3>
+      <Player src={sound} />
     </li>
   )
 }
