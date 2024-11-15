@@ -1,5 +1,5 @@
 import Card from "@/components/card/Card";
-import Navigation from "@/components/nav/navigation";
+import Navigation from "@/components/nav/Navigation";
 import { fetchPages } from "@/lib/notion";
 
 
