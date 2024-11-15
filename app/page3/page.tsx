@@ -1,11 +1,6 @@
 import Card from "@/components/card/Card";
-<<<<<<< HEAD
 import Navigation from "@/components/nav/Navigation";
-=======
-import Navigation from "@/components/nav/navigation";
->>>>>>> origin/master
 import { fetchPages } from "@/lib/notion2";
-
 
 export default async function Home() {
   const post = await fetchPages();
@@ -14,20 +9,11 @@ export default async function Home() {
     <>
       <Navigation />
       <header className="h-[600px] w-full azerty flex items-center justify-center flex-col text-3xl  text-white gap-10 ">
-<<<<<<< HEAD
         <h1 className="text-6xl font-black">SOUNDBOX MTF</h1>
         <h2>seulement pour les mecs COOL</h2>
       </header>
       <div className="px-24">
         <ul className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 lg:gap-8">
-=======
-        <h1 className="text-6xl font-black">SOUNDBOX</h1>
-        <h2>seulement pour les mecs COOL</h2>
-      </header>
-      <div className="px-24">
-        <ul className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
->>>>>>> origin/master
-
           {post.results.map((i) => (
             <Card
               key={i.id}
@@ -36,7 +22,6 @@ export default async function Home() {
               sound={i.properties.son.files[0]?.file.url}
             />
           ))}
-
         </ul>
       </div>
     </>
